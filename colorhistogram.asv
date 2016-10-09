@@ -1,0 +1,22 @@
+%RGB three channel histogram curve drawing
+%
+function hist  = colorhistogram(picname)  
+pic1 = imread(picname);  
+pic1R = pic1(:,:,1);  
+pic1G = pic1(:,:,2);  
+pic1B = pic1(:,:,3);    
+% 二，绘制直方图  
+[m,n]=size(pic1R);                            %size of image 
+rhist=zeros(1,256);                           %Probability of gray level appearance,set the value as 0
+    for k=0:255      
+        rhist(k+1)=length(find(pic1R==k))/(m*n);     %Compute the probaility of t计算每级灰度出现的概率，将其存入rhist中相应位置  
+    end  
+ghist=zeros(1,256);   
+    for k=0:255      
+        ghist(k+1)=length(find(pic1G==k))/(m*n);       
+    end  
+bhist=zeros(1,256);   
+    for k=0:255      
+        bhist(k+1)=length(find(pic1B==k))/(m*n);      
+    end  
+end 
