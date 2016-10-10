@@ -21,4 +21,7 @@ bhist=zeros(1,256);
     end  
   plot(0:255,rhist,'r',0:255,ghist,'g',0:255,bhist,'b');
   axis([0 255,-inf,inf]) %set the range of horizontal ordinate
+  xlabel('Gray Levels');ylabel('Frequency');title('Color Histogram');
+  print('-dbitmap','C:\abc.bmp'); 
+
 end 
